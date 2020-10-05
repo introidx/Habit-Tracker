@@ -11,13 +11,13 @@ import com.introid.habittracker.logic.repository.HabitRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HabitViewModel (application: Application) : AndroidViewModel(application) {
+class HabitViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository : HabitRepository
-    val getAllHabits : LiveData<List<Habit>>
+    private val repository: HabitRepository
+    val getAllHabits: LiveData<List<Habit>>
 
     init {
-        val habitDao :HabitDao = HabitDatabase.getDatabase(application).habitDao()
+        val habitDao: HabitDao = HabitDatabase.getDatabase(application).habitDao()
         repository = HabitRepository(habitDao)
 
         getAllHabits = repository.getAllHabits
@@ -47,7 +47,6 @@ class HabitViewModel (application: Application) : AndroidViewModel(application) 
             repository.deleteAll()
         }
     }
-
 
 
 }
