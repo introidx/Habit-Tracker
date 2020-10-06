@@ -17,7 +17,7 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
     val getAllHabits: LiveData<List<Habit>>
 
     init {
-        val habitDao: HabitDao = HabitDatabase.getDatabase(application).habitDao()
+        val habitDao = HabitDatabase.getDatabase(application).habitDao()
         repository = HabitRepository(habitDao)
 
         getAllHabits = repository.getAllHabits
